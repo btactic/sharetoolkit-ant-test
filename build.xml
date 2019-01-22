@@ -25,6 +25,6 @@
     </target>
 
     <target name="jar" depends="compile" description="Creates the jar file">
-        <jar manifest="conf/MANIFEST.MF" destfile="dist/TestExtension.jar" basedir="build" />
+        <jar manifest="META-INF/MANIFEST.MF" destfile="dist/TestExtension.jar" basedir="build" />
     </target>
 </project>
