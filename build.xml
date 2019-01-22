@@ -1,0 +1,30 @@
+<project name="TestExtension" default="jar">
+
+    <property name="zimbra.src" location="/home/public/p4/HELIX" />
+    <property name="common.dir" location="${zimbra.src}/ZimbraCommon" />
+    <property name="common.classes.dir" location="${common.dir}/build/classes" />
+    <property name="common.jars.dir" location="${common.dir}/jars" />
+    <property name="zimbraServer.dir" value="${zimbra.src}/ZimbraServer" />
+
+    <path id="class.path">
+        <pathelement location="${common.classes.dir}" />
+        <pathelement location="${build.classes.dir}" />
+        <pathelement location="${zimbraServer.dir}/build/classes"/>
+        <fileset dir="${common.jars.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="compile" description="Compiles the source code">
+        <path id="all.java.path">
+            <pathelement location="src" />
+        </path>
+        <javac includeantruntime="false" destdir="build" debug="true" classpathref="class.path">
+            <src refid="all.java.path" />
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile" description="Creates the jar file">
+        <jar manifest="conf/MANIFEST.MF" destfile="dist/TestExtension.jar" basedir="build" />
+    </target>
+</project>
