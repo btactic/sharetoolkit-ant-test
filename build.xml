@@ -1,4 +1,4 @@
-<project name="TestExtension" default="jar">
+<project name="ShareToolkit" default="jar">
 
     <property name="zimbra.src" location="/home/public/p4/HELIX" />
     <property name="common.dir" location="${zimbra.src}/ZimbraCommon" />
